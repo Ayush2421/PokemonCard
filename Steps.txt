@@ -1,0 +1,12 @@
+Steps to run the Application
+
+1) Enter the PokemonCard Folder
+2) Run npm i command in terminal
+3) Run npm start
+
+.................................................
+Need To implement/TODO:
+1) Loading
+2) Bar remove from bottom
+3) Center Align
+4) Mobile implementation
