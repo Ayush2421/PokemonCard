@@ -11,15 +11,15 @@ export default function PokemonContent() {
             <Pagination />
             <div className="pokemonContent">
                 {
-                   filteredData.length > 0 ? (filteredData.slice(start, end).map((element) => {
+                    filteredData.length > 0 
+                    ? (filteredData.slice(start, end).map((element) => {
                         return (
                             <div key={element.id}>
                                 <Card pokemonCard={element} />
                             </div>
                         )
                     }))
-                    :
-                    <ResultNotFound/>
+                    :<ResultNotFound />
                 }
             </div>
         </>

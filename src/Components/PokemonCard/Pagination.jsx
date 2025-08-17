@@ -20,17 +20,17 @@ export default function Pagination() {
                 onClick={handlePaginationBtnClick}
                 id="paginationBtn"
                 disabled={currentPage === 0}>◀</button>
-                {paginationCount.map((_, index) => (
-                    <button
-                        name="Normal"
-                        onClick={(e) => handlePaginationBtnClick(e, index)}
-                        className={currentPage === index ? "active" : ""}
-                        id="paginationBtn"
-                        key={index}
-                    >
-                        {index + 1}
-                    </button>
-                ))}
+            {paginationCount.map((_, index) => (
+                <button
+                    name="Normal"
+                    onClick={(e) => handlePaginationBtnClick(e, index)}
+                    className={currentPage === index ? "active" : ""}
+                    id="paginationBtn"
+                    key={index}
+                >
+                    {index + 1}
+                </button>
+            ))}
             <button
                 name="Right"
                 onClick={handlePaginationBtnClick}
