@@ -1,35 +1,35 @@
-import { useEffect, useState } from "react"
-import Card from "./Card";
+import { useContext, useEffect, useState } from "react"
 import SearchBar from "./SearchBar";
+import Loading from "./Loading";
 import pokemonDataFetch from "./PokemonDataFetch";
+import PokemonContent from "./PokemonCard/PokemonContent";
+import filteringData from "./FilteringData";
+import { Pcontext } from "./Context/PokemonContext";
 
 export default function PokemonMain(){
-    const [pokemonData, setPokemonData] = useState([]);
-    const [searchValue, setSearchValue] = useState("");
+    const { pokemonData, setPokemonData, setFilteredData, loading, setLoading,
+    searchValue, setSearchValue, setCurrentPage} = useContext(Pcontext)
 
+
+    // Fetching Data
     useEffect(()=>{
-        pokemonDataFetch(setPokemonData)
+        pokemonDataFetch(setPokemonData,setFilteredData, setLoading)
     },[])
-    const searchedData =  pokemonData.filter((evt)=> {
-        return (
-            evt.name.split("").slice(0, searchValue.length).join("").includes(searchValue)
-            //  evt.name.toLowerCase().includes(searchValue.toLowerCase())
-        )
-    })
+
+    // filterind Data
+    useEffect(()=>{
+        setCurrentPage(0);
+        if(searchValue.trim()){
+            setFilteredData(filteringData(pokemonData , searchValue))
+        }else{
+            setFilteredData(pokemonData)
+        }
+    },[searchValue])
+
     return(
         <>
         <SearchBar searchValue={searchValue} setSearchValue={setSearchValue}/>
-        <div className="MainContainer">
-        {
-            searchedData.map((element , index)=>{
-                return (
-                    <div key={index}>
-                        <Card pokemonCard= {element} />
-                    </div>
-                )
-            })
-        }
-        </div>
+        {loading ? <Loading/> : <PokemonContent/>}
         </>
     )
 }

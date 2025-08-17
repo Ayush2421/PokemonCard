@@ -17,14 +17,30 @@ body{
     align-items:center;
     background-image: var(--bgColor)
 }
-.MainContainer{
+/* pagination*/
+.paginationMainContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pagination{
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+    margin: 2px;
+}
+.active{
+    background-color: rgb(137, 176, 137);
+}
+
+.pokemonContent{
     width: calc(100vw - 20px);
     padding-top: 50px;
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
 }
-.MainContainer> div{
+.pokemonContent> div{
     display: flex;
     justify-content: center;
     align-items: center;
