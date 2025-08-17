@@ -1,11 +1,4 @@
 Steps to run the Application
 
-1) Run npm i command in terminal
-2) Run npm dev
-
-.................................................
-Need To implement/TODO:
-1) Loading
-2) Bar remove from bottom
-3) Center Align
-4) Mobile implementation
+1) Run npm i 
+2) Run npm run dev
