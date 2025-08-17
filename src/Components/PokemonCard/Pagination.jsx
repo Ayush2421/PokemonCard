@@ -5,37 +5,38 @@ export default function Pagination() {
     const { currentPage, setCurrentPage, paginationCount } = useContext(Pcontext)
 
     const handlePaginationBtnClick = (e, index) => {
-        if(e.target.name === "Left"){
+        if (e.target.name === "Left") {
             setCurrentPage((prev) => prev - 1);
-        }else if(e.target.name === "Right"){
+        } else if (e.target.name === "Right") {
             setCurrentPage((prev) => prev + 1);
-        }else{
+        } else {
             setCurrentPage(index);
         }
     };
     return (
         <div className="paginationMainContainer">
-            <button 
-            name="Left"
-            onClick={handlePaginationBtnClick} 
-            disabled={currentPage === 0}>⏮️ </button>
-            <div className="paginationContainer">
+            <button
+                name="Left"
+                onClick={handlePaginationBtnClick}
+                id="paginationBtn"
+                disabled={currentPage === 0}>◀</button>
                 {paginationCount.map((_, index) => (
                     <button
                         name="Normal"
-                        onClick={(e)=>handlePaginationBtnClick(e, index)} 
+                        onClick={(e) => handlePaginationBtnClick(e, index)}
                         className={currentPage === index ? "active" : ""}
+                        id="paginationBtn"
                         key={index}
                     >
                         {index + 1}
                     </button>
                 ))}
-            </div>
             <button
                 name="Right"
                 onClick={handlePaginationBtnClick}
+                id="paginationBtn"
                 disabled={currentPage === paginationCount.length - 1}
-            >⏭️ </button>
+            >▶</button>
         </div>
     );
 }

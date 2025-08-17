@@ -1,5 +1,5 @@
 export default async function pokemonDataFetch(setPokemonData,setFilteredData, setLoading){
-    const API= "https://pokeapi.co/api/v2/pokemon?limit=50";
+    const API= "https://pokeapi.co/api/v2/pokemon?limit=250";
         try{
             setLoading(true);
             const pResponse = await fetch(API);

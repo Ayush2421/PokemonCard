@@ -11,7 +11,7 @@ export default function PokemonContext(props){
     const [currentPage, setCurrentPage] = useState(0);
 
     //pagination Constant
-    const totalItemDisplay = 5;
+    const totalItemDisplay = 25;
     const totalPages = Math.ceil(filteredData.length / totalItemDisplay);
     const paginationCount = new Array(totalPages).fill("");
     const start = currentPage * totalItemDisplay;
